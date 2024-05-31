@@ -16,11 +16,24 @@ st.markdown(
             background-color: #f6f4e8ff
         }
                 /* Targeting Streamlit's input elements */
-        input {
+        .input {
             background-color: #4a5742;
             color: white;  /* Change text color for better visibility */
         }
-        textarea {
+      .st-bc {
+         color: #3e4c35ff;
+            background-color: #f1e9e0ff;
+        }
+    .st-emotion-cache-1gulkj5 {
+         display: flex;
+        -webkit-box-align: center;
+         align-items: center;
+          padding: 1rem;
+          background-color: #f1e9e0ff;
+          border-radius: 0.5rem;
+          color: #3e4c35ff;
+}
+        .textarea {
             background-color: #4a5742;
             color: white;  /* Change text color for better visibility */
         }
@@ -75,7 +88,7 @@ if uploaded_file is not None:
     care_tips = response.get("text", "No care tips available, follow your heart. 💚")
     plant_class = response.get("plant")
 
-    st.write(f"Care Tips: {care_tips}")
+    st.write(f"{care_tips}:")
 
 # Chatbot section
 st.header("Need more answers? I am here to help. 😊")
