@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 from PIL import Image
+import os
 
 im = Image.open("garden-guru-favicon.png")
 st.set_page_config(
@@ -49,10 +50,11 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+API_HOST=os.environ['API_HOST']
 
 # Defining FastAPI Endpoints
-prediction_url = "http://127.0.0.1:8000/prediction"
-chat_url = "http://127.0.0.1:8000/chat"
+prediction_url = f"{API_HOST}/prediction"
+chat_url = f"{API_HOST}/chat"
 
 # Home endpoint response
 st.header("Welcome to")
@@ -62,7 +64,7 @@ st.title("Garden Guru 🪴")
 
 # Home endpoint response
 st.header("Let me guide you on your green journey. ✨")
-home_response = requests.get("http://127.0.0.1:8000/")
+home_response = requests.get(f"{API_HOST}/")
 st.write(home_response.json().get("message", "No welcome message available."))
 
 # Image upload section
