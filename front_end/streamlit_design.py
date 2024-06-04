@@ -46,6 +46,16 @@ st.markdown(
             background-color: #4a5742 !important;
             color: white !important;  /* Change text color for better visibility */
         }
+        h1 {
+            color: #4a5742;
+        }
+        
+        h2 {
+            color: #c37967;
+        }
+        
+        #161616
+        
     </style>
     """,
     unsafe_allow_html=True
@@ -63,7 +73,7 @@ st.header("Welcome to")
 st.title("Garden Guru 🪴")
 
 # Home endpoint response
-st.header("Let me guide you on your green journey. ✨")
+st.header("Let me guide you on your green journey ✨")
 home_response = requests.get(f"{API_HOST}/")
 st.write(home_response.json().get("message", "No welcome message available."))
 
@@ -90,21 +100,29 @@ if uploaded_file is not None:
     care_tips = response.get("text", "No care tips available, follow your heart. 💚")
     plant_class = response.get("plant")
 
-    st.write(f"{care_tips}:")
+    st.write(f"{care_tips}")
+
+# Initialize session state for chat history
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
 
 # Chatbot section
 st.header("Need more answers? I am here to help. 😊")
-#plant_class = st.text_input("Enter the plant class (e.g., Begonia rex):")
 user_prompt = st.text_input("What would you like to find out?")
 
 # Handling the User's Question
-if st.button("Ask"):        # Adds a button that triggers the chat functionality
+if st.button("Ask"):
     if plant_class and user_prompt:
         params = {"plant_class": plant_class, "user_prompt": user_prompt}
         response = requests.get(chat_url, params=params)
         chat_response = response.json().get("response", "No response available.")
-        st.write(f"Expert Answer: {chat_response}")
+
+        # Append user prompt and response to chat history
+        st.session_state.chat_history.append({"user": user_prompt, "bot": chat_response})
+
+        # Display the chat history
+        for chat in st.session_state.chat_history:
+            st.write(f"You: {chat['user']}")
+            st.write(f"Garden Guru: {chat['bot']}")
     else:
         st.write("Please enter your question.")
-
-
