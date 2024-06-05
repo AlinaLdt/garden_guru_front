@@ -3,7 +3,7 @@ import requests
 from PIL import Image
 import os
 
-im = Image.open("garden-guru-favicon.png")
+im = Image.open("Garden Guru Favicon round.png")
 st.set_page_config(
     page_title="Garden Guru",
     page_icon=im,
