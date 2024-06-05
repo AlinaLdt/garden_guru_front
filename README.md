@@ -31,7 +31,6 @@ Garden Guru is an AI-powered web application designed to assist plant enthusiast
 - Cloud Platform: Google Cloud Platform (GCP)
 - API Integration: Roboflow for image analysis
 
-
 ## Installation
 To set up Garden Guru locally, follow these steps: 
 
@@ -115,9 +114,9 @@ docker push gcr.io/your-project-id/garden-guru-back
 gcloud run deploy garden-guru-back --image gcr.io/your-project-id/garden-guru-back --platform managed
 ```
 
-## Directory Structure 
+# Directory Structure 
 
-# GARDEN_GURU_FRONT
+### Frontend
 ```
 GARDEN_GURU_FRONT/
 ├── .env
@@ -130,7 +129,7 @@ GARDEN_GURU_FRONT/
 │   └── ...
 └── requirements.txt
 ```
-# GARDEN_GURU_BACK
+### Backend
 ```
 GARDEN_GURU_BACK/
 ├── .env
