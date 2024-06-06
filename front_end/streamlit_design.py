@@ -9,10 +9,14 @@ st.set_page_config(
     page_icon=im,
 )
 
+
+
 # Using CSS to change background color
 st.markdown(
     """
     <style>
+    
+    
         .stApp {
             background-color: #f6f4e8ff
         }
@@ -53,8 +57,27 @@ st.markdown(
         h2 {
             color: #c37967;
         }
+     
+        p {
+            color: #161616;
+        }
         
-        #161616
+        button {
+            color: #4a5742;
+        }
+        
+    .st-emotion-cache-7ym5gk:hover {
+    border-color: #4a5742;
+    color: #161616;
+    background-color: #4a5742;
+}
+
+    .st-emotion-cache-7ym5gk:focus {
+    border-color: #4a5742;
+    background-color: #4a5742;
+}
+
+
         
     </style>
     """,
